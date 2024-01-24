@@ -11,7 +11,7 @@ from typing import Optional
 from typing import Union
 
 
-def counts_calls(method: Callable) -> Callable:
+def count_calls(method: Callable) -> Callable:
     """
     Decorator that takes a single method Callable argument and returns a
     Callable
@@ -54,7 +54,7 @@ class Cache():
         self._redis.flushdb()
 
     @call_history
-    @counts_calls
+    @count_calls
     def store(self, data: Union[int, str, bytes, float]) -> str:
         """
         A method that stores a data using the redis library
